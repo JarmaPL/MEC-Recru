@@ -19,10 +19,12 @@ const BrandName = styled.div`
 
 const NavigationBar = () => (
   <Wrapper>
-    <BrandName>MEC.</BrandName>
-    <Div>
-      <p>Hello!</p>
-    </Div>
+    <Container>
+      <BrandName>MEC.</BrandName>
+      <Div>
+        <p>newtext!</p>
+      </Div>
+    </Container>
   </Wrapper>
 );
 

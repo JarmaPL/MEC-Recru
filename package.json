@@ -6,9 +6,18 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/styletron-engine-atomic": "^1.1.0",
+    "@types/styletron-react": "^5.0.2",
+    "@types/styletron-standard": "^2.0.1",
+    "atomize": "^1.0.26",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-transition-group": "^4.4.1",
+    "styled-components": "^5.2.0",
+    "styletron-engine-atomic": "^1.4.6",
+    "styletron-react": "^5.2.7",
+    "styletron-standard": "^3.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

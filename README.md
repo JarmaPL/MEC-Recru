@@ -1,12 +1,12 @@
-This project Font-End was created with [Create React App](https://github.com/facebook/create-react-app).
-This project Back-End was created with [ExpressJS](https://github.com/expressjs/expressjs.com)
+This project Font-End was created with [Create React App](https://github.com/facebook/create-react-app).<br>
+This project Back-End was created with [ExpressJS](https://github.com/expressjs/expressjs.com).<br>
 
 ## Available Scripts
 
-In client:
--> yarn start - Developer React server
--> serve -s build - Production server
-In server:
+In client:<br>
+-> yarn start - Developer React server<br>
+-> serve -s build - Production server<br>
+In server:<br>
 -> yarn start - server start
 
 ## Project Idea

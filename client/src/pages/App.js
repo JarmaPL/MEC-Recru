@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import Header from "../components/Header";
 import HeadText from "../components/HeadText";
 import HotDeal from "../components/HotDeals";
-import OfferMainView from "../components/ManOffer";
+import OfferMainView from "../components/MainOffer";
+import { getHotDeals, getProducts } from "../services/actions/products";
 
-const App = () => {
+const App = ({ getHotDeals, hotdeals, getProducts, products }) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      await getProducts();
+    };
+    const fetchHotDeals = async () => {
+      await getHotDeals();
+    };
+    fetchHotDeals();
+    fetchData();
+  }, [getProducts, getHotDeals]);
+
   return (
     <>
       <Header />
@@ -15,10 +28,24 @@ const App = () => {
         clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
         amet…
       </HeadText>
-      <HotDeal />
-      <OfferMainView />
+      <HotDeal hotdeals={hotdeals} />
+      <OfferMainView products={products} />
     </>
   );
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  products: state.productList,
+  hotdeals: state.hotdeals,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getProducts: async () => {
+    await dispatch(getProducts());
+  },
+  getHotDeals: async () => {
+    await dispatch(getHotDeals());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

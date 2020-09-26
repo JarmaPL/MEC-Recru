@@ -18,11 +18,12 @@ const BrandName = styled.div`
   font-weight: 900;
   text-transform: uppercase;
   font-family: Montserrat;
+  cursor: pointer;
 `;
 
 const Header = () => (
   <Wrapper>
-    <BrandName>MEC.</BrandName>
+    <BrandName onClick={() => (window.location.href = `/`)}>MEC.</BrandName>
     <Div>
       <Text textSize="17px" position="absolute" top="0" right="0">
         @Szymon Jarmuszczak - rekrutacja Erli

@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 `;
 
 const ProductName = styled.div`
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 600;
   margin-top: 300px;
   text-transform: uppercase;
@@ -33,7 +33,7 @@ const CardItem = ({ nameOf, link, children }) => (
       <img
         src={ItemPlaceholder}
         style={{
-          width: "80%",
+          width: "75%",
           height: "auto",
           position: "absolute",
           top: "10px",
@@ -58,6 +58,7 @@ const CardItem = ({ nameOf, link, children }) => (
           suffix={
             <Icon name="LongRight" size="22px" color="white" m={{ l: "8px" }} />
           }
+          onClick={() => (window.location.href = `/${link}`)}
         >
           Zamów
         </Button>

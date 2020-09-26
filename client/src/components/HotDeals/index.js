@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Div, Text } from "atomize";
+import { Div, Text, Icon } from "atomize";
 import BlockDecorator from "../../assets/img/block.svg";
 import CardItem from "../ItemCard";
 
@@ -36,7 +36,7 @@ const ItemWrapper = styled.div`
   justify-content: space-around;
 `;
 
-const HotDeal = () => (
+const HotDeal = ({ hotdeals }) => (
   <Wrapper>
     <Div w="28%" pos="relative" h="auto">
       <img
@@ -58,15 +58,31 @@ const HotDeal = () => (
         </span>
       </TitleText>
       <ItemWrapper>
-        <CardItem nameOf="Kosiarka">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed…
-        </CardItem>
-        <CardItem nameOf="Kosiarka">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed…
-        </CardItem>
-        <CardItem nameOf="Kosiarka">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed…
-        </CardItem>
+        {hotdeals && hotdeals[0] ? (
+          hotdeals.map((item) => (
+            <CardItem
+              nameOf={item.product.name}
+              link={item.product.id}
+              key={item.product.id}
+            >
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed…
+            </CardItem>
+          ))
+        ) : (
+          <Div
+            d="flex"
+            flexDir="column"
+            h="auto"
+            m={{ t: "100px", b: "100px" }}
+            align="center"
+            justify="center"
+          >
+            <Icon name="Loading2" size="120px" />
+            <TitleText textSize="70px" m="10px">
+              Ładowanie....
+            </TitleText>
+          </Div>
+        )}
       </ItemWrapper>
     </Div>
   </Wrapper>

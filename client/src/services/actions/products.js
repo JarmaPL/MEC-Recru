@@ -1,5 +1,4 @@
 import axios from "axios";
-import { store } from "../store";
 
 export const PRODUCTS_REQUEST = "PRODUCTS_REQUEST";
 export const PRODUCTS_SUCCESS = "PRODUCTS_SUCCESS";
@@ -9,21 +8,17 @@ export const PRODUCTSONEVIEW_REQUEST = "PRODUCTSONEVIEW_REQUEST";
 export const PRODUCTSONEVIEW_SUCCESS = "PRODUCTSONEVIEW_SUCCESS";
 export const PRODUCTSONEVIEW_FAILURE = "PRODUCTSONEVIEW_FAILURE";
 
+export const HOTDEALS_REQUEST = "HOTDEALS_REQUEST";
+export const HOTDEALS_SUCCESS = "HOTDEALS_SUCCESS";
+export const HOTDEALS_FAILURE = "HOTDEALS_FAILURE";
+
 const url = process.env.REACT_APP_SERVER_PATH;
 
-export const getProducts = (q) => (dispatch) => {
+export const getProducts = () => (dispatch) => {
   dispatch({ type: PRODUCTS_REQUEST });
-  const limit = 100000;
-  const usertoken = store.getState().data.token;
   return axios
-    .get(`${url}/Grups`, {
-      params: {
-        q,
-        limit,
-      },
+    .get(`${url}/products`, {
       headers: {
-        Authorization: `Bearer ${usertoken}`,
-        "cache-control": "no-cache",
         "Content-Type": "application/json;charset=UTF-8",
         "Access-Control-Allow-Origin": "*",
       },
@@ -32,17 +27,14 @@ export const getProducts = (q) => (dispatch) => {
       dispatch({ type: PRODUCTS_SUCCESS, payload });
     })
     .catch((err) => {
-      console.log(err);
-      dispatch({ type: PRODUCTS_FAILURE });
+      dispatch({ type: PRODUCTS_FAILURE, err });
     });
 };
 export const getOneProduct = (id) => (dispatch) => {
   dispatch({ type: PRODUCTSONEVIEW_REQUEST });
-  const usertoken = store.getState().data.token;
   return axios
-    .get(`${url}/Grups/${id}`, {
+    .get(`${url}/products${id}`, {
       headers: {
-        Authorization: `Bearer ${usertoken}`,
         "cache-control": "no-cache",
         "Content-Type": "application/json;charset=UTF-8",
         "Access-Control-Allow-Origin": "*",
@@ -52,7 +44,22 @@ export const getOneProduct = (id) => (dispatch) => {
       dispatch({ type: PRODUCTSONEVIEW_SUCCESS, payload });
     })
     .catch((err) => {
-      console.log(err);
-      dispatch({ type: PRODUCTSONEVIEW_FAILURE });
+      dispatch({ type: PRODUCTSONEVIEW_FAILURE, err });
+    });
+};
+export const getHotDeals = () => (dispatch) => {
+  dispatch({ type: HOTDEALS_REQUEST });
+  return axios
+    .get(`${url}/products/hot-deals`, {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then((payload) => {
+      dispatch({ type: HOTDEALS_SUCCESS, payload });
+    })
+    .catch((err) => {
+      dispatch({ type: HOTDEALS_FAILURE, err });
     });
 };

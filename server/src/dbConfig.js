@@ -11,4 +11,6 @@ mongoose.connection.on("error", (err) => {
   process.exit(-1);
 });
 
+mongoose.disconnect();
+
 export default mongoose;

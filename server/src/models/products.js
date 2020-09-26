@@ -3,20 +3,24 @@ import mongoose, { Schema } from "mongoose";
 const productsSchema = new Schema(
   {
     productId: {
+      //Id from WebSocket
       type: String,
       unique: true,
     },
     name: {
+      //Product Name also from WebSocket
       type: String,
       trim: true,
       unique: false,
     },
     price: {
+      //price also from WebSocket
       type: Number,
       trim: true,
       unique: false,
     },
     stock: {
+      // again stock value from WebSocket
       type: Number,
       trim: true,
       unique: false,
@@ -27,6 +31,7 @@ const productsSchema = new Schema(
   }
 );
 
+//return values on view function => CreatedAt, updatedAt i write about it in /models/orders.js
 productsSchema.methods = {
   view() {
     const view = {

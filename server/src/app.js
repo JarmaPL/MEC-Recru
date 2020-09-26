@@ -7,6 +7,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 
+import cors from "cors";
 import mongoose from "./dbConfig";
 import Orders from "./routes/orders";
 import Products from "./routes/products";
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/orders", Orders);

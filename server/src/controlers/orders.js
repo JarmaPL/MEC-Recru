@@ -3,6 +3,7 @@ import Products from "../models/products";
 import { wss } from "../wssConfig";
 import { success, notFound, badRequest } from "./response";
 
+//create new order if existing famillier product !
 export const create = ({ bodymen: { body } }, res, next) => {
   Products.findOne({ productId: body.productId })
     .then(notFound(res))
@@ -10,25 +11,27 @@ export const create = ({ bodymen: { body } }, res, next) => {
     .then(badRequest(res))
     .then(() =>
       Orders.create(body)
-        .then(async (item) => {
-          await wss.send(`
-            {
+        .then((item) => {
+          wss.send(
+            JSON.stringify({
               operation: "product.stock.decrease",
-              correlationId: "${item._id}",
               payload: {
-                productId: ${item.productId},
-                stock: ${item.quality},
+                productId: Number(item.productId),
+                stock: Number(item.quality),
               },
-            }
-          `);
+              correlationId: item._id,
+            })
+          );
           return item.view();
         })
+        .then(badRequest(res))
         .catch(next)
     )
     .then(success(res, 200))
     .catch(next);
 };
 
+//get all elements (Just for testing and Administrating)
 export const index = ({ querymen: { query, select, cursor } }, res, next) =>
   Orders.count(query)
     .then((count) =>
@@ -40,6 +43,7 @@ export const index = ({ querymen: { query, select, cursor } }, res, next) =>
     .then(success(res))
     .catch(next);
 
+//Get order data by Id
 export const show = ({ params }, res, next) =>
   Orders.findById(params.id)
     .then(notFound(res))

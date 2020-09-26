@@ -1,3 +1,4 @@
+//Success response "200"
 export const success = (res, status) => (entity) => {
   if (entity) {
     res.status(status || 200).json(entity);
@@ -5,6 +6,7 @@ export const success = (res, status) => (entity) => {
   return null;
 };
 
+//Response if not found elemet "404"
 export const notFound = (res) => (entity) => {
   if (entity) {
     return entity;
@@ -13,6 +15,7 @@ export const notFound = (res) => (entity) => {
   return null;
 };
 
+//Response if some data are wrong 🤨 "400"
 export const badRequest = (res) => (entity) => {
   if (entity) {
     return entity;

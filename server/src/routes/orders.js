@@ -24,6 +24,7 @@ router.post("/", body({ productId, quality }), create);
  * @mecapiName Orders::AllOfType
  * @mecapiModel /models/orders
  * @mecapiControler /controlers/orders
+ * @mecapiDescription its UseFull for Testing and Administrating (can be using when app will get biger)
  * @mecapiBody you can use querymen to filter getted data 😱
  * @mecapiSucces -> 200 OK - Safe and sound 🎧 as {Object}
  * @mecapiError -> just 400 Bad Request as {Object}
@@ -32,7 +33,7 @@ router.get("/", query(), index);
 
 /**
  * @mecapi {get} of /orders/:id
- * @mecapiName Orders::FindOf
+ * @mecapiName Orders::FindOne
  * @mecapiModel /models/orders
  * @mecapiControler /controlers/orders
  * @mecapiSucces -> 200 OK - Safe and sound 🎧 as {Object}

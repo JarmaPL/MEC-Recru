@@ -1,25 +1,33 @@
 import { Router } from "express";
-import { middleware as query } from "querymen";
-import { index, show } from "../controlers/products";
+import { hotDeals, index, show } from "../controlers/products";
 
 const router = new Router();
 
 /**
- * @mecapi {get} of /orders
- * @mecapiName Orders::AllOfType
- * @mecapiModel /models/orders
- * @mecapiControler /controlers/orders
- * @mecapiBody you can use querymen to filter getted data 😱
+ * @mecapi {get} of /products
+ * @mecapiName Products::AllOfType
+ * @mecapiModel /models/products
+ * @mecapiControler /controlers/products
  * @mecapiSucces -> 200 OK - Safe and sound 🎧 as {Object}
- * @mecapiError -> just 400 Bad Request as {Object}
+ * @mecapiError -> Error as Text
  */
-router.get("/", query({ limit: 12 }), index);
+router.get("/", index);
 
 /**
- * @mecapi {get} of /orders/:id
- * @mecapiName Orders::FindOf
- * @mecapiModel /models/orders
- * @mecapiControler /controlers/orders
+ * @mecapi {get} of /product/hot-deals
+ * @mecapiName Hot-delas (TOP SELLING ITEMS)
+ * @mecapiModel {count (of saling), product}
+ * @mecapiControler /controlers/product
+ * @mecapiSucces -> 200 OK - Safe and sound 🎧 as {Object}
+ * @mecapiError -> 400 bad Request
+ */
+router.get("/hot-deals", hotDeals);
+
+/**
+ * @mecapi {get} of /products/:id
+ * @mecapiName Products::FindOne
+ * @mecapiModel /models/products
+ * @mecapiControler /controlers/products
  * @mecapiSucces -> 200 OK - Safe and sound 🎧 as {Object}
  * @mecapiError -> just 404 NOT FOUND as {Object}
  */

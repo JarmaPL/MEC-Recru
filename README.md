@@ -22,11 +22,12 @@ I was start this project with chosee technologies, so I decaite to use React bec
     3. Open project folder and follow commends:
         a: `cd server`
         b: `yarn install`
-        b: `nano .env` -> type "MONGODB_URI=${link to mongodb and add "/${Database name", default: mongodb://127.0.0.1:27017/mec} -> save by Command + O (on MacOS)`
+        b: `nano .env` -> type "MONGODB_URI=${link to mongodb and add "/${Database name", default: mongodb://127.0.0.1:27017/mec} -> save by Ctrl + O (on MacOS)`
         c: `yarn start`
-        d: `cd client`
-        e: `nano .env` -> type "REACT_APP_SERVER_PATH=${path to server, default: http://localhost:4000} -> save by Command + O (on MacOS)`
-        f: `server -s build`
+        d: `Open secound terminal`
+        e: `cd client`
+        f: `nano .env` -> type "REACT_APP_SERVER_PATH=${path to server, default: http://localhost:4000} -> save by Ctrl + O (on MacOS)`
+        g: `server -s build`
     4. Lunch browser and connect to localhost:5000
 
 ## Contact

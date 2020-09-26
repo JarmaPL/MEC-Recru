@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5c9db17f.chunk.css",
+    "main.js": "/static/js/main.6fb4eb69.chunk.js",
+    "main.js.map": "/static/js/main.6fb4eb69.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9bedb533.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9bedb533.js.map",
+    "static/js/2.0dcbadc9.chunk.js": "/static/js/2.0dcbadc9.chunk.js",
+    "static/js/2.0dcbadc9.chunk.js.map": "/static/js/2.0dcbadc9.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.8a7beb3550b62affeaa714015362be04.js": "/precache-manifest.8a7beb3550b62affeaa714015362be04.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.5c9db17f.chunk.css.map": "/static/css/main.5c9db17f.chunk.css.map",
+    "static/js/2.0dcbadc9.chunk.js.LICENSE.txt": "/static/js/2.0dcbadc9.chunk.js.LICENSE.txt",
+    "static/media/ItemPicturePlaceholder.png": "/static/media/ItemPicturePlaceholder.dd729d8e.png",
+    "static/media/block.svg": "/static/media/block.4c2b1b87.svg",
+    "static/media/circle.svg": "/static/media/circle.5ed432e1.svg",
+    "static/media/dots.svg": "/static/media/dots.75ce4691.svg",
+    "static/media/wirers.svg": "/static/media/wirers.fb673c5f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9bedb533.js",
+    "static/js/2.0dcbadc9.chunk.js",
+    "static/css/main.5c9db17f.chunk.css",
+    "static/js/main.6fb4eb69.chunk.js"
+  ]
+}
